@@ -1160,8 +1160,8 @@ uint8_t LSM9DS1::I2CreadBytes(uint8_t address, uint8_t subAddress, uint8_t * des
 {
 	// Next send the register to be read. OR with 0x80 to indicate multi-read.
 
-	for (int i = 0; i < count;){
-		dest[i++] = wiringPiI2CReadReg8(address, subAddress + 1);
+	for (int i = 0; i < count;i++){
+		dest[i] = wiringPiI2CReadReg8(address, subAddress + i);
 	}
 	return count;
 }
